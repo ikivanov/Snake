@@ -1,0 +1,42 @@
+<html>
+	<body>
+		<canvas id="scene" width="530" height="408"></canvas>
+		<div>
+			<button id="start">Start</button>
+			<button id="pause">Pause</button>
+			<button id="stop">Game Over</button>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="requestAnimationFramePollyfill.js"></script>
+	<script type="text/javascript" src="fps-label.js"></script>
+	<script type="text/javascript" src="snake.js"></script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			window.SnakeNamespace = window.SnakeNamespace || {};
+
+			var canvas = document.getElementById("scene"),
+				snake = new SnakeNamespace.Snake({
+					canvas: canvas
+				});
+
+			snake.render();
+
+			var startBtn = document.getElementById("start");
+			startBtn.addEventListener("click", function() {
+				snake.start();
+			});
+
+			var pauseBtn = document.getElementById("pause");
+			pauseBtn.addEventListener("click", function() {
+				snake.pause();
+			});
+
+			var stopBtn = document.getElementById("stop");
+			stopBtn.addEventListener("click", function() {
+				snake.gameOver();
+			});
+		}
+	</script>
+</html>
