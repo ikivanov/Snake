@@ -237,10 +237,11 @@
 
 			ctx.lineWidth = 2;
 			ctx.strokeStyle = "white";
-			ctx.fillStyle = "red";
 
 			for (let i = 0; i < that.snakeBlocks.length; i++) {
 				let snakeBlock = that.snakeBlocks[i];
+
+				ctx.fillStyle = (i === 0 ? "brown" : "red");
 
 				ctx.strokeRect(snakeBlock.x, snakeBlock.y, SNAKE_BLOCK_LENGTH, SNAKE_BLOCK_LENGTH);
 				ctx.fillRect(snakeBlock.x, snakeBlock.y, SNAKE_BLOCK_LENGTH, SNAKE_BLOCK_LENGTH);
